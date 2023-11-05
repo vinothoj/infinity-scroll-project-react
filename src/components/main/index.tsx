@@ -107,9 +107,9 @@ export const Main: React.FC = () => {
     };
   }, []);
 
-  const emptyResults = (
+  const emptyResults = (message: string) => (
     <div className="loading-center">
-      <p>No gallery feed found</p>
+      <p>{message}</p>
     </div>
   );
 
@@ -147,6 +147,8 @@ export const Main: React.FC = () => {
           }
         } else {
           setLastPage(page);
+          setIsMoreLoading(false);
+          setIsScrollBottom(false);
         }
       })
       .catch((error) => {
@@ -205,10 +207,11 @@ export const Main: React.FC = () => {
                       {renderMoreItems("more-item")}
                       <div id="middle-scroll" />
                       {!isMoreLoading ? <></> : pageLoading}
+                      {page === lastPage && emptyResults("No more data")}
                     </Card>
                   </Row>
                 ) : (
-                  emptyResults
+                  emptyResults("No gallery feed found")
                 )
               ) : (
                 <Col md={{ span: 10, offset: 1 }}>{pageLoading}</Col>
