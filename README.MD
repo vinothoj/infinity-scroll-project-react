@@ -3,7 +3,7 @@ A step-by-step guide on how to install your project. You can include code snippe
 
 ```bash
 # Clone the repository
-git clone https://github.com/vinothoj/infinity-scroll-project-react
+git clone https://github.com/vinothoj/infinity-scroll-project-react.git
 
 # Change into the project directory
 cd infinity-scroll-project-react
